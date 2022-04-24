@@ -2,7 +2,7 @@
   "name": "eleventy-not-so-minimal-blog-starter",
   "version": "1.0.0",
   "description": "A not so minimal starter for building a website + blog using the Eleventy static site generator.",
-  "main": "index.njk",
+  "main": "index.md",
   "scripts": {
     "build": "npx eleventy",
     "watch": "npx eleventy --watch",
