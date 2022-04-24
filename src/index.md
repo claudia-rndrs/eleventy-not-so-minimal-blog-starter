@@ -1,5 +1,8 @@
 ---
 layout: page
+eleventyNavigation:
+  key: home
+  order: 1
 ---
 
 # Eleventy Not So Minimal Blog Starter
