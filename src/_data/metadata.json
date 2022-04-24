@@ -1,0 +1,11 @@
+{
+  "title": "Blog name",
+  "url": "https://blog.com",
+  "language": "en",
+  "description": "A not so minimal starter for building a website + blog using the Eleventy static site generator.",
+  "author": {
+    "name": "firstname lastname",
+    "email": "hello@blog.com",
+    "url": "https://blog.com/about/"
+  }
+}
