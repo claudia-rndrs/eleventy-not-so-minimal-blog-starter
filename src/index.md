@@ -1,3 +1,7 @@
+---
+layout: page
+---
+
 # Eleventy Not So Minimal Blog Starter
 
 This starter will help you build a relatively simple blog with a few key features, while using the Eleventy static site generator.
