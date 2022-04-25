@@ -4,6 +4,7 @@ module.exports = function(eleventyConfig) {
   eleventyConfig.addPlugin(eleventyNavigationPlugin)
 
   eleventyConfig.addLayoutAlias('page', 'layouts/page')
+  eleventyConfig.addNunjucksAsyncShortcode('image', require('./src/_11ty/imageShortcode').imageShortcode)
 
   /* Creating a collection of blogposts by filtering based on folder and filetype */
   eleventyConfig.addCollection("blog", (collectionApi) => {
