@@ -6,6 +6,8 @@ module.exports = function(eleventyConfig) {
   eleventyConfig.addPlugin(eleventyNavigationPlugin)
 
   eleventyConfig.addLayoutAlias('page', 'layouts/page')
+  eleventyConfig.addLayoutAlias('article', 'layouts/article')
+
   eleventyConfig.addFilter('readableDate', dateObj => {
     return DateTime.fromJSDate(dateObj, {
       zone: "Europe/Paris",
