@@ -1,11 +1,17 @@
 ---
 layout: page
-title: "blog"
+title: "Blog"
 eleventyNavigation:
     key: blog
     order: 2
+pagination:
+  data: collections.blog
+  size: 10
+  alias: articles
 ---
 
 <h1>{{ title }}</h1>
 
-This view contains a list of all blogposts sorted from newest to oldest.
+<p>This view contains a list of all blogposts sorted from newest to oldest.</p>
+
+{% include "./_includes/components/articleList.njk" %}
