@@ -22,4 +22,4 @@ This eleventy starter already includes:
 - Nunjucks templates
 - Sass & the necessary scripts to compile Sass
 
-If the listed setup is not what you require, you might want to check out one of the many other Eleveny starters, which can be found here.
+If the listed setup is not what you require, you might want to check out one of the many other Eleveny starters, which can be found here: [Eleventy Starter Projects](https://www.11ty.dev/docs/starter/)
