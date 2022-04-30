@@ -20,6 +20,8 @@ module.exports = function(eleventyConfig) {
   eleventyConfig.addCollection("blog", (collectionApi) => {
     return collectionApi.getFilteredByGlob('./src/blog/*.md').reverse()
   })
+  eleventyConfig.addCollection('categoryList', require('./src/_11ty/getCategoryList'))
+  eleventyConfig.addCollection('categories', require('./src/_11ty/createCategories'))
 
   return {
     dir: {
