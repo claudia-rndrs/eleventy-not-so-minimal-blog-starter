@@ -4,9 +4,13 @@
   "description": "A not so minimal starter for building a website + blog using the Eleventy static site generator.",
   "main": "index.md",
   "scripts": {
-    "build": "npx eleventy",
-    "watch": "npx eleventy --watch",
-    "serve": "npx eleventy --serve",
+    "generate:sprite": "svg-icon-generate --folder=src/assets/icons --output=src/assets/sprite.svg",
+    "watch:eleventy": "eleventy --serve",
+    "watch:sass": "sass --watch src/assets/theming:_site/assets",
+    "build:eleventy": "eleventy",
+    "build:sass": "sass  --no-source-map --style=compressed src/assets/theming:_site/assets",
+    "start": "npm-run-all build:sass generate:sprite --parallel watch:*",
+    "build": "npm-run-all build:*",
     "debug": "DEBUG=* npx eleventy"
   },
   "author": {
@@ -26,3 +30,4 @@
     "svg-icon-sprite": "^1.1.1"
   }
 }
+

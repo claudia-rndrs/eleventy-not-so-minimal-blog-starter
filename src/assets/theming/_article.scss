@@ -1,0 +1,29 @@
+article {
+  .category {
+    display: inline-block;
+    font-weight: 600;
+    text-decoration: none;
+    margin-left: 1rem;
+    padding: .4rem 1rem;
+    border: 1px solid $base-clr;
+    border-radius: 6px;
+    line-height: 1;
+
+    &:hover {
+      background-color: $base-clr;
+      color: $bg-clr;
+      transition: all 400ms ease-in;
+    }
+  }
+
+  small {
+    display: inline-block;
+    margin-bottom: 1em;
+  }
+
+  p {
+    + * {
+      margin-top: 1em;
+    }
+  }
+}

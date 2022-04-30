@@ -1,0 +1,20 @@
+@import url('https://fonts.googleapis.com/css2?family=Montagu+Slab:wght@400;700&display=swap');
+
+$main-font: 'Gill Sans', 'Gill Sans MT', 'Calibri', 'Trebuchet MS', 'sans-serif';
+$accent-font: 'Montagu Slab', serif;
+
+/* Colours */
+$light-shade: #E9EFC0;
+$dark-shade: #4E944F;
+$darkest-shade: darken($dark-shade, 17%);
+$accent-shade:#FF8C32;
+
+/*========================================*/
+
+$base-clr: $darkest-shade;
+$bg-clr: lighten($light-shade, 7%);
+$link-clr: $darkest-shade;
+$link-hvr-clr: $accent-shade;
+$cat-clr: $darkest-shade;
+
+

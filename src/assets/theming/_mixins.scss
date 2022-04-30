@@ -1,0 +1,22 @@
+/*===============================*/
+/*          breakpoints          */
+/*===============================*/
+@mixin breakpoint-xs {
+  @media screen and (max-width: 599px) { @content };
+}
+
+@mixin breakpoint-sm {
+  @media screen and (min-width: 600px) { @content };
+}
+
+@mixin breakpoint-md {
+  @media screen and (min-width: 960px) { @content };
+}
+
+@mixin breakpoint-lg {
+  @media screen and (min-width: 1280px) { @content };
+}
+
+@mixin breakpoint-xl {
+  @media screen and (min-width: 1920px) { @content };
+}
