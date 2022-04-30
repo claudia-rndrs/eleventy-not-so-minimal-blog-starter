@@ -5,18 +5,15 @@ eleventyNavigation:
   order: 1
 ---
 
-# Eleventy Not So Minimal Blog Starter
-
+# Welcome
 This starter will help you build a relatively simple blog with a few key features, while using the Eleventy static site generator.
-
-A not so minimal starter for building a website + blog using the Eleventy static site generator.
 
 This eleventy starter already includes:
 - Basic site navigation with eleventy-navigation
 - Blog categories & category based navigation
 - Image optimisation with Eleventy-img
 - SVG icons with svg-icon-sprite
-- SEO (sitemap, metadata)
+- SEO (sitemap, metadata, robots.txt)
 - Luxon for handling dates & times
 - A few basic Eleventy configurations, filters and shortcodes
 - Nunjucks templates
