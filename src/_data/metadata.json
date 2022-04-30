@@ -1,11 +1,11 @@
 {
-  "title": "Blog name",
-  "url": "https://blog.com",
+  "title": "Eleventy Not so minimal blog starter",
+  "url": "https://eleventy-not-so-minimal-blog-starter.netlify.app",
   "language": "en",
-  "description": "A not so minimal starter for building a website + blog using the Eleventy static site generator.",
+  "description": "Build your own website + blog with the 'not so minimal blog starter' which uses the Eleventy static site generator.",
   "author": {
     "name": "firstname lastname",
-    "email": "hello@blog.com",
-    "url": "https://blog.com/about/"
-  }
+    "email": "hello@blog.com"
+  },
+  "image": "/assets/social-image.jpg"
 }
