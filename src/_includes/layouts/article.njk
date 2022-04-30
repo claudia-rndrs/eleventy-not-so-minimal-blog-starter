@@ -2,10 +2,11 @@
 layout: page
 ---
 
-<article>
+<article class="article">
   <h1>{{ title }}</h1>
   <small>
     Published: <time>{{ date | readableDate }}</time>
+    <a class="category" href="/blog/{{ category }}">{{ category }}</a>
   </small>
   {{ content | safe }}
 </article>

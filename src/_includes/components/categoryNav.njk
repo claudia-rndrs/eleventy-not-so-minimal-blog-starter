@@ -1,0 +1,21 @@
+{% set categories =  collections.categoryList %}
+<nav role="navigation" aria-label="category navigation" >
+  <span>Filter posts by category:</span>
+  <ul>
+    <li class="category__link {{ ' active' if page.url == '/blog/'}}">
+      <a class="category__link" 
+        href="/blog"
+        {{ "aria-current" if page.url === "/blog/" }}
+          >all</a>
+    </li>
+    {%- for category in categories %}
+    {% set catUrl = ["/blog/", category.key, "/" ] |  join %}
+    <li class="category__link {{ ' active' if page.url == catUrl }}">
+      <a href="{{ catUrl }}"
+      {{ "aria-current" if page.url == catUrl }}>
+        {{ category.key }}
+      </a>
+    </li>
+    {%- endfor -%}
+  </ul>
+</nav>
