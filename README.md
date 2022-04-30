@@ -23,7 +23,6 @@ If the listed setup is not what you require, you might want to check out one of 
 git clone https://github.com/mangamaui/eleventy-not-so-minimal-blog-starter.git your-blog-name
 ```
 
-
 ### 2. Navigate to the directory
 
 ```
@@ -42,20 +41,15 @@ npm install
 ### 5. Run Eleventy
 
 ```
-npx eleventy
+npm start
 ```
 
-Or build and host locally for local development
-```
-npx eleventy --serve
-```
-
-Or build automatically when a template changes:
-```
-npx eleventy --watch
-```
-
-Or in debug mode:
+In debug mode:
 ```
 DEBUG=* npx eleventy
+```
+
+To build 
+```
+npm run build
 ```
