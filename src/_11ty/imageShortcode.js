@@ -1,5 +1,4 @@
-const Image = require("@11ty/eleventy-img")
-const  path = require('path')
+const Image = require('@11ty/eleventy-img')
 
 const imageShortcode = async (
   relativeSrc,
@@ -9,14 +8,11 @@ const imageShortcode = async (
   formats = ['webp'],
   sizes = '(min-width: 100px)'
 ) => {
-  const { dir: imgDir } = path.parse(relativeSrc);
-  const fullSrc = path.join('src', relativeSrc);
-
   const imageMetadata = await Image(relativeSrc, {
     widths,
     formats,
-    outputDir: "./_site/assets/images/generated/",
-    urlPath: "/assets/images/generated/",
+    outputDir: './_site/assets/images/generated/',
+    urlPath: '/assets/images/generated/',
   })
 
   const imageAttributes = {
@@ -26,7 +22,7 @@ const imageShortcode = async (
     decoding: 'async',
   }
 
-  if(className) {imageAttributes["class"] = className }
+  if(className) {imageAttributes['class'] = className }
 
   return Image.generateHTML(imageMetadata, imageAttributes)
 }
