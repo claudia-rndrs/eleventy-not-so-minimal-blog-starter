@@ -23,6 +23,13 @@ module.exports = function(eleventyConfig) {
   eleventyConfig.addCollection('categoryList', require('./src/_11ty/getCategoryList'))
   eleventyConfig.addCollection('categories', require('./src/_11ty/createCategories'))
 
+
+  eleventyConfig.setFrontMatterParsingOptions({
+    excerpt: true,
+    excerpt_separator: "<!-- excerpt -->",
+    excerpt_alias: 'excerpt'
+  })
+
   return {
     dir: {
       input: 'src',
