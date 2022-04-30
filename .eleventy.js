@@ -1,9 +1,11 @@
 const eleventyNavigationPlugin = require('@11ty/eleventy-navigation')
+const pluginRss = require('@11ty/eleventy-plugin-rss')
 
 const { DateTime } = require('luxon')
 
 module.exports = function(eleventyConfig) {
   eleventyConfig.addPlugin(eleventyNavigationPlugin)
+  eleventyConfig.addPlugin(pluginRss)
 
   eleventyConfig.addLayoutAlias('page', 'layouts/page')
   eleventyConfig.addLayoutAlias('article', 'layouts/article')
