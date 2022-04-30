@@ -8,16 +8,23 @@ module.exports = function(eleventyConfig) {
   eleventyConfig.addLayoutAlias('page', 'layouts/page')
   eleventyConfig.addLayoutAlias('article', 'layouts/article')
 
-  eleventyConfig.addFilter('readableDate', dateObj => {
-    return DateTime.fromJSDate(dateObj, {
-      zone: "Europe/Paris",
-    }).setLocale('en').toLocaleString(DateTime.DATE_FULL)
+  eleventyConfig.addPassthroughCopy('./src/assets/icons')
+  eleventyConfig.addPassthroughCopy('./src/assets/sprite.svg')
+  eleventyConfig.addPassthroughCopy({
+      'node_modules/svg-icon-sprite/dist/svg-icon-sprite.js': 'assets/svg-icon-sprite.js'
   })
+  eleventyConfig.addPassthroughCopy('./src/assets/social-image.jpg')
 
   eleventyConfig.addNunjucksAsyncShortcode('image', require('./src/_11ty/imageShortcode').imageShortcode)
 
+  eleventyConfig.addFilter('readableDate', dateObj => {
+    return DateTime.fromJSDate(dateObj, {
+      zone: 'Europe/Paris',
+    }).setLocale('en').toLocaleString(DateTime.DATE_FULL)
+  })
+
   /* Creating a collection of blogposts by filtering based on folder and filetype */
-  eleventyConfig.addCollection("blog", (collectionApi) => {
+  eleventyConfig.addCollection('blog', (collectionApi) => {
     return collectionApi.getFilteredByGlob('./src/blog/*.md').reverse()
   })
   eleventyConfig.addCollection('categoryList', require('./src/_11ty/getCategoryList'))
