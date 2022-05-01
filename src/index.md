@@ -14,9 +14,16 @@ This eleventy starter already includes:
 - Image optimisation with Eleventy-img
 - SVG icons with svg-icon-sprite
 - SEO (sitemap, metadata, robots.txt)
+- RSS feed
 - Luxon for handling dates & times
 - A few basic Eleventy configurations, filters and shortcodes
 - Nunjucks templates
 - Sass & the necessary scripts to compile Sass
 
-If the listed setup is not what you require, you might want to check out one of the many other Eleveny starters, which can be found here: [Eleventy Starter Projects](https://www.11ty.dev/docs/starter/)
+<br>
+
+You can find the <a href="https://github.com/Mangamaui/eleventy-not-so-minimal-blog-starter" target="_blank">source code on GitHub</a>.
+
+<br><br>
+
+If the listed setup is not what you require, you might want to check out one of the many other Eleveny starters, which can be found here: [Eleventy Starter Projects](https://www.11ty.dev/docs/starter/).
