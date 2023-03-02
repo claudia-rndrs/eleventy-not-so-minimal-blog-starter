@@ -13,5 +13,5 @@ eleventyComputed:
 <h1>{{ title }}</h1>
 
 {% include "./_includes/components/categoryNav.njk" %}
-{% set articles = collections.categories[cat.key] | reverse %}
+{% set articles = collections.categorisedPosts[cat.key] | reverse %}
 {% include "./_includes/components/articleList.njk" %}
