@@ -1,43 +1,73 @@
 const eleventyNavigationPlugin = require('@11ty/eleventy-navigation')
 const pluginRss = require('@11ty/eleventy-plugin-rss')
 
-const { DateTime } = require('luxon')
+const { 
+  getAllPosts, 
+  getCategoryList,
+  getCategorisedPosts 
+} = require('./config/collections')
+
+const { 
+  readableDate 
+} = require('./config/filters')
+
+const { 
+  imageShortcode 
+} = require('./config/shortcodes')
+
 
 module.exports = function(eleventyConfig) {
+  
+  /*================================*/
+  /*   plugins and configurations   */
+  /*================================*/
   eleventyConfig.addPlugin(eleventyNavigationPlugin)
   eleventyConfig.addPlugin(pluginRss)
-
-  eleventyConfig.addLayoutAlias('page', 'layouts/page')
-  eleventyConfig.addLayoutAlias('article', 'layouts/article')
-
-  eleventyConfig.addPassthroughCopy('./src/assets/icons')
-  eleventyConfig.addPassthroughCopy('./src/assets/sprite.svg')
-  eleventyConfig.addPassthroughCopy({
-      'node_modules/svg-icon-sprite/dist/svg-icon-sprite.js': 'assets/svg-icon-sprite.js'
-  })
-  eleventyConfig.addPassthroughCopy('./src/assets/social-image.jpg')
-
-  eleventyConfig.addNunjucksAsyncShortcode('image', require('./src/_11ty/imageShortcode').imageShortcode)
-
-  eleventyConfig.addFilter('readableDate', dateObj => {
-    return DateTime.fromJSDate(dateObj, {
-      zone: 'Europe/Paris',
-    }).setLocale('en').toLocaleString(DateTime.DATE_FULL)
-  })
-
-  /* Creating a collection of blogposts by filtering based on folder and filetype */
-  eleventyConfig.addCollection('blog', (collectionApi) => {
-    return collectionApi.getFilteredByGlob('./src/blog/*.md').reverse()
-  })
-  eleventyConfig.addCollection('categoryList', require('./src/_11ty/getCategoryList'))
-  eleventyConfig.addCollection('categories', require('./src/_11ty/createCategories'))
-
 
   eleventyConfig.setFrontMatterParsingOptions({
     excerpt: true,
     excerpt_separator: "<!-- excerpt -->",
     excerpt_alias: 'excerpt'
   })
+
+  /*===================================================*/
+  /* files that need to be copied to the build folder  */
+  /*===================================================*/
+  eleventyConfig.addPassthroughCopy('./src/assets/social-image.jpg')
+  eleventyConfig.addPassthroughCopy('./src/assets/icons')
+  eleventyConfig.addPassthroughCopy('./src/assets/sprite.svg')
+  eleventyConfig.addPassthroughCopy({
+      'node_modules/svg-icon-sprite/dist/svg-icon-sprite.js': 'assets/svg-icon-sprite.js'
+  })
+
+
+  /*=================*/
+  /*     Layouts     */
+  /*=================*/
+  eleventyConfig.addLayoutAlias('page', 'layouts/page')
+  eleventyConfig.addLayoutAlias('article', 'layouts/article')
+
+
+  /*=================*/
+  /*   Collections   */
+  /*=================*/
+  eleventyConfig.addCollection('blog', getAllPosts)
+  eleventyConfig.addCollection('categoryList', getCategoryList)
+  eleventyConfig.addCollection('categorisedPosts', getCategorisedPosts)
+
+  
+  /*=================*/
+  /*     Filters     */
+  /*=================*/
+  eleventyConfig.addFilter('readableDate', readableDate)
+
+
+  /*=================*/
+  /*    shortcodes   */
+  /*=================*/
+  eleventyConfig.addNunjucksAsyncShortcode('image', imageShortcode)
+
+
 
   return {
     dir: {
