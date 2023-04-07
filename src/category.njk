@@ -9,9 +9,8 @@ eleventyComputed:
   title: Articles categorized under "{{ cat.name }}"
 ---
 
-
 <h1>{{ title }}</h1>
 
-{% include "./_includes/components/categoryNav.njk" %}
-{% set articles = collections.categorisedPosts[cat.key] | reverse %}
-{% include "./_includes/components/articleList.njk" %}
+{% include "./_includes/components/categoryNav.njk" %} {% set articles =
+collections.categorizedPosts[cat.key] | reverse %} {% include
+"./_includes/components/articleList.njk" %}
