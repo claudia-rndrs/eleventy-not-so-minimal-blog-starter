@@ -1,4 +1,4 @@
-const slugify = require('slugify')
+import slugify from 'slugify'
 
 /* Creating a collection containing all blogposts by filtering based on folder and filetype */
 const getAllPosts = (collectionApi) => {
@@ -20,13 +20,12 @@ const getCategoryList = (collectionApi) => {
 
   temp.forEach((category) => {
     const slug = strToSlug(category);
-
-    if(slug !== 'in-the-spotlight') {
-      catPages.push({
-        'key': slug,
-        'name': category 
-      })
-    }
+    
+    catPages.push({
+      'key': slug,
+      'name': category 
+    })
+    
   })
 
   return catPages
@@ -54,7 +53,7 @@ const getCategorisedPosts = (collectionApi) => {
   return categorisedPosts
 }
 
-module.exports = {
+export {
   getAllPosts,
   getCategoryList,
   getCategorisedPosts
