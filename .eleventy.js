@@ -1,81 +1,80 @@
-const eleventyNavigationPlugin = require('@11ty/eleventy-navigation')
-const pluginRss = require('@11ty/eleventy-plugin-rss')
+import eleventyNavigationPlugin from "@11ty/eleventy-navigation"
+import pluginRss from "@11ty/eleventy-plugin-rss"
+import { eleventyImageTransformPlugin } from "@11ty/eleventy-img"
+import pluginIcons from "eleventy-plugin-icons"
 
-const { 
-  getAllPosts, 
+import {
+  getAllPosts,
   getCategoryList,
-  getCategorisedPosts 
-} = require('./config/collections')
+  getCategorisedPosts,
+} from "./config/collections.js"
 
-const { 
-  readableDate 
-} = require('./config/filters')
+import { readableDate } from "./config/filters.js"
 
-const { 
-  imageShortcode 
-} = require('./config/shortcodes')
+const imageConfig = {
+  extensions: "html",
+  formats: ["webp"],
+  widths: [300, 600, 900, "auto"],
+  defaultAttributes: {
+    loading: "lazy",
+    decoding: "async",
+    sizes: "100vw",
+  },
+  urlPath: "/images/",
+}
 
 
-module.exports = function(eleventyConfig) {
-  
+export default function (eleventyConfig) {
   /*================================*/
   /*   plugins and configurations   */
   /*================================*/
   eleventyConfig.addPlugin(eleventyNavigationPlugin)
   eleventyConfig.addPlugin(pluginRss)
+  eleventyConfig.addPlugin(eleventyImageTransformPlugin, imageConfig)
 
   eleventyConfig.setFrontMatterParsingOptions({
     excerpt: true,
     excerpt_separator: "<!-- excerpt -->",
-    excerpt_alias: 'excerpt'
+    excerpt_alias: "excerpt",
   })
+
+    eleventyConfig.addPlugin(pluginIcons, {
+      sources: [{ name: "custom", path: "./src/assets/icons" }],
+    })
 
   /*===================================================*/
   /* files that need to be copied to the build folder  */
   /*===================================================*/
-  eleventyConfig.addPassthroughCopy('./src/assets/social-image.jpg')
-  eleventyConfig.addPassthroughCopy('./src/assets/icons')
-  eleventyConfig.addPassthroughCopy('./src/assets/sprite.svg')
-  eleventyConfig.addPassthroughCopy({
-      'node_modules/svg-icon-sprite/dist/svg-icon-sprite.js': 'assets/svg-icon-sprite.js'
-  })
-
+  eleventyConfig.addPassthroughCopy("./src/assets/social-image.jpg")
+  eleventyConfig.addPassthroughCopy("./src/assets/icons")
+  eleventyConfig.addPassthroughCopy("./src/assets/sprite.svg")
 
   /*=================*/
   /*     Layouts     */
   /*=================*/
-  eleventyConfig.addLayoutAlias('page', 'layouts/page')
-  eleventyConfig.addLayoutAlias('article', 'layouts/article')
-
+  eleventyConfig.addLayoutAlias("page", "layouts/page")
+  eleventyConfig.addLayoutAlias("article", "layouts/article")
 
   /*=================*/
   /*   Collections   */
   /*=================*/
-  eleventyConfig.addCollection('blog', getAllPosts)
-  eleventyConfig.addCollection('categoryList', getCategoryList)
-  eleventyConfig.addCollection('categorisedPosts', getCategorisedPosts)
+  eleventyConfig.addCollection("blog", getAllPosts)
+  eleventyConfig.addCollection("categoryList", getCategoryList)
+  eleventyConfig.addCollection("categorisedPosts", getCategorisedPosts)
 
-  
   /*=================*/
   /*     Filters     */
   /*=================*/
-  eleventyConfig.addFilter('readableDate', readableDate)
-
-
-  /*=================*/
-  /*    shortcodes   */
-  /*=================*/
-  eleventyConfig.addNunjucksAsyncShortcode('image', imageShortcode)
-
+  eleventyConfig.addFilter("readableDate", readableDate)
 
 
   return {
     dir: {
-      input: 'src',
-      output: '_site',
-      includes: '_includes',
-      data: '_data'
+      input: "src",
+      output: "_site",
+      includes: "_includes",
+      data: "_data",
     },
-    markdownTemplateEngine: 'njk'
-  }
+    markdownTemplateEngine: "njk",
+  };
 }

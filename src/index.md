@@ -12,7 +12,7 @@ This eleventy starter already includes:
 - Basic site navigation with eleventy-navigation
 - Blog categories & category based navigation
 - Image optimisation with Eleventy-img
-- SVG icons with svg-icon-sprite
+- SVG icons with Eleventy-plugin-icon
 - SEO (sitemap, metadata, robots.txt)
 - RSS feed
 - Luxon for handling dates & times

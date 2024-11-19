@@ -1,4 +1,4 @@
-const { DateTime } = require('luxon')
+import { DateTime } from 'luxon'
 
 const readableDate = (dateObj) => {
   return DateTime.fromJSDate(dateObj, {
@@ -6,6 +6,6 @@ const readableDate = (dateObj) => {
   }).setLocale('en').toLocaleString(DateTime.DATE_FULL)
 }
 
-module.exports = {
+export {
   readableDate
 }
